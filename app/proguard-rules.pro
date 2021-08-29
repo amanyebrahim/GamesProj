@@ -19,3 +19,9 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keep class org.xmlpull.v1.** { *; }
+
+### Data classes.
+# Keep data classes for getting all data without any missing data.
+-keep class com.example.gamesproj.model.dataClasses.**{ *; }

@@ -15,6 +15,10 @@ android {
     compileSdkVersion(Configs.compileSdkVersion)
     buildToolsVersion(Configs.buildToolsVersion)
 
+    buildFeatures {
+        dataBinding = true
+    }
+
     bundle {
         language {
             enableSplit = false
@@ -46,15 +50,6 @@ android {
         }
     }
 
-//    signingConfigs {
-//        create("release") {
-//            storeFile = file(loadValues("KEY_PATH").getProperty("KEY_PATH"))
-//            keyAlias = loadValues("KEY_ALIAS").getProperty("KEY_ALIAS")
-//            keyPassword = loadValues("KEY_PASSWORD").getProperty("KEY_PASSWORD")
-//            storePassword = loadValues("KEYSTORE_PASSWORD").getProperty("KEYSTORE_PASSWORD")
-//        }
-//    }
-
     buildTypes {
         getByName("debug") {
             applicationIdSuffix = ".debug"
@@ -68,7 +63,7 @@ android {
             proguardFiles(getDefaultProguardFile(ProGuards.proguardTxt), ProGuards.androidDefault)
             buildConfigField("boolean", "enableDebugLogging", "true")
             buildConfigField("String", "PACKAGE_NAME", "\"com.example.gamesproj\"")
-            buildConfigField("String", "BASE_URL", "\"https://sahibi.app\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.rawg.io/api/\"")
         }
 
         getByName("release") {
@@ -79,10 +74,22 @@ android {
             proguardFiles(ProGuards.okio)
             proguardFiles(ProGuards.shapeImageView)
             proguardFiles(getDefaultProguardFile(ProGuards.proguardTxt), ProGuards.androidDefault)
-//            signingConfig = signingConfigs.getByName("release")
             buildConfigField("boolean", "enableDebugLogging", "false")
             buildConfigField("String", "PACKAGE_NAME", "\"com.example.gamesproj\"")
-            buildConfigField("String", "BASE_URL", "\"https://sahibi.app\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.rawg.io/api/\"")
+        }
+
+        packagingOptions {
+            exclude("META-INF/DEPENDENCIES")
+            exclude("META-INF/LICENSE")
+            exclude("META-INF/LICENSE.txt")
+            exclude("META-INF/license.txt")
+            exclude("META-INF/NOTICE")
+            exclude("META-INF/NOTICE.txt")
+            exclude("META-INF/notice.txt")
+            exclude("META-INF/ASL2.0")
+            exclude("META-INF/main.kotlin_module")
+            exclude("META-INF/atomicfu.kotlin_module")
         }
     }
 
@@ -90,7 +97,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-
 }
 
 
@@ -116,7 +122,6 @@ dependencies {
     implementation(Dependencies.AndroidX.legacySupportV4)
     implementation(Dependencies.AndroidX.legacySupportCoreUi)
     implementation(Dependencies.AndroidX.multiDex)
-    implementation(Dependencies.AndroidX.dataStore)
 
     // LiveData & ViewModel.
     implementation(Dependencies.Lifecycle.extensions)
@@ -136,7 +141,7 @@ dependencies {
 
     // Koin.
     // Dependency injector.
-//    implementation(Dependencies.Koin.androidxViewModel)
+    implementation(Dependencies.Koin.androidxViewModel)
 
     // Retrofit.
     // Type-safe HTTP client.
@@ -183,5 +188,9 @@ dependencies {
     // This size unit scales with the screen size based on the sp size unit (for texts).
     // It can help Android developers with supporting multiple screens.
     implementation(Dependencies.ssp)
+
+    //pagination
+    implementation(Dependencies.pagination)
+
 
 }

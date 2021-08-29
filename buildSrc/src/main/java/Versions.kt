@@ -21,6 +21,7 @@ object Versions {
 
     object Arc {
         const val navigation = "1.0.0"
+        const val pagination = "3.0.1"
     }
 
     const val gradlePlugin = "4.2.2"

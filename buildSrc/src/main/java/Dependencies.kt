@@ -56,7 +56,8 @@ object Dependencies {
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
     object Koin {
-        const val androidxViewModel = "io.insert-koin:koin-androidx-viewmodel:${Versions.koin}"
+        const val androidxViewModel = "org.koin:koin-androidx-viewmodel:${Versions.
+        koin}"
     }
 
     object Retrofit {
@@ -90,5 +91,7 @@ object Dependencies {
 
     const val sdp = "com.intuit.sdp:sdp-android:${Versions.sdp}"
     const val ssp = "com.intuit.ssp:ssp-android:${Versions.ssp}"
+
+    const val pagination="androidx.paging:paging-runtime:${Versions.Arc.pagination}"
 
 }
