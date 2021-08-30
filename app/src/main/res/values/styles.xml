@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--region Button styles-->
-    <style name="AppTextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
-        <item name="android:textAllCaps">false</item>
-    </style>
 
     <style name="AppButton" parent="Widget.MaterialComponents.Button">
         <item name="android:minHeight">0dp</item>
@@ -102,16 +99,6 @@
     <!--endregion-->
 
     <!--region Shape styles-->
-    <style name="AppShapeAppearance.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/_8sdp</item>
-    </style>
-
-    <style name="AppShapeAppearance.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/_8sdp</item>
-    </style>
-
     <style name="AppCard" parent="Widget.MaterialComponents.CardView">
         <item name="cardElevation">@dimen/_4sdp</item>
     </style>
@@ -119,39 +106,19 @@
     <!--region Text styles-->
     <style name="AppText">
         <item name="android:textAlignment">viewStart</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/_13ssp</item>
     </style>
 
     <style name="AppText.White">
         <item name="android:textColor">@color/white</item>
     </style>
-
-    <style name="AppText.Primary">
-        <item name="android:textColor">?attr/colorPrimary</item>
-    </style>
-
-    <style name="AppText.Secondary">
-        <item name="android:textColor">?attr/colorSecondary</item>
-    </style>
-
     <style name="AppText.Small">
         <item name="android:textSize">@dimen/_11ssp</item>
     </style>
 
     <style name="AppText.verySmall">
         <item name="android:textSize">@dimen/_9ssp</item>
-    </style>
-
-    <style name="AppText.Primary.Small">
-        <item name="android:textSize">@dimen/_11ssp</item>
-    </style>
-    <style name="AppText.Primary.verySmall">
-        <item name="android:textSize">@dimen/_9sdp</item>
-    </style>
-
-    <style name="AppText.Secondary.Small">
-        <item name="android:textSize">@dimen/_11ssp</item>
     </style>
 
     <style name="AppText.White.Small">
@@ -162,27 +129,14 @@
         <item name="android:textSize">@dimen/_13ssp</item>
     </style>
 
-    <style name="AppText.Primary.Big">
-        <item name="android:textSize">@dimen/_13ssp</item>
-    </style>
-
-    <style name="AppText.Secondary.Big">
-        <item name="android:textSize">@dimen/_13ssp</item>
-    </style>
 
     <style name="AppText.Bigger">
         <item name="android:textSize">@dimen/_15ssp</item>
     </style>
 
-    <style name="AppText.Primary.Bigger">
-        <item name="android:textSize">@dimen/_15ssp</item>
-    </style>
 
-    <style name="AppText.Secondary.Bigger">
-        <item name="android:textSize">@dimen/_15ssp</item>
-    </style>
 
-    <style name="ToolbarText" parent="AppText.Primary.Bigger">
+    <style name="ToolbarText" parent="AppText.Bigger">
         <item name="android:ellipsize">end</item>
         <item name="android:lines">1</item>
         <item name="android:maxLines">1</item>

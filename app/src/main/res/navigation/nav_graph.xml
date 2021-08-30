@@ -7,14 +7,18 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.gamesproj.ui.home.HomeFragment"
+        android:name="com.example.gamesproj.ui.games.GameFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_games" />
 
     <fragment
         android:id="@+id/gameDetailsFragment"
         android:name="com.example.gamesproj.ui.gameDetails.GameDetailsFragment"
-        android:label="HolyQuranFragment"
+        android:label="GameDetailsFragment"
         tools:layout="@layout/fragment_game_details">
+        <argument
+            android:name="gameId"
+            android:defaultValue="-1"
+            app:argType="integer"  />
     </fragment>
 </navigation>

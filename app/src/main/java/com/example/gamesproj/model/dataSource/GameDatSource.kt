@@ -1,16 +1,16 @@
 package com.example.gamesproj.model.dataSource
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.gamesproj.model.api.ApiService
 import com.example.gamesproj.model.dataClasses.GameDetails
-import com.example.gamesproj.model.dataClasses.GamesResponse
 import timber.log.Timber
 
 class GameDatSource (private val apiService: ApiService) : PagingSource<Int, GameDetails>() {
 
-    @SuppressLint("TimberArgCount")
+    @SuppressLint("TimberArgCount", "LogNotTimber")
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, GameDetails> {
         try {
             val currentLoadingPageKey = params.key ?: 1
@@ -18,7 +18,6 @@ class GameDatSource (private val apiService: ApiService) : PagingSource<Int, Gam
             val response = apiService.getListGames(currentLoadingPageKey)
             val responseData = mutableListOf<GameDetails>()
             val data = response.body()?.results ?: emptyList()
-            Timber.v("loadingData","$data")
             responseData.addAll(data)
 
             val prevKey = if (currentLoadingPageKey == 1) null else currentLoadingPageKey - 1
@@ -29,6 +28,7 @@ class GameDatSource (private val apiService: ApiService) : PagingSource<Int, Gam
                 nextKey = currentLoadingPageKey.plus(1)
             )
         } catch (e: Exception) {
+            Timber.v("GamePagingException${e.message}")
             return LoadResult.Error(e)
         }
     }

@@ -161,6 +161,8 @@ dependencies {
     // OkHttp Logging Interceptor.
     // For HTTP logging.
     implementation(Dependencies.Retrofit.loggingInterceptor)
+    implementation(Dependencies.Retrofit.json)
+    implementation(Dependencies.json)
 
     // Room.
     // Persistence library provides an abstraction layer over SQLite

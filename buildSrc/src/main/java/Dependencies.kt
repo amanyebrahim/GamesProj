@@ -62,6 +62,7 @@ object Dependencies {
 
     object Retrofit {
         const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+        const val json="com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
         const val converterMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
 
         const val networkResponseAdapter =
@@ -69,8 +70,9 @@ object Dependencies {
 
         const val loggingInterceptor =
             "com.squareup.okhttp3:logging-interceptor:${Versions.loggingInterceptor}"
-    }
 
+    }
+    const val json="com.google.code.gson:gson:2.8.8"
     object Moshi {
         const val kotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
         const val adapters = "com.squareup.moshi:moshi-adapters:${Versions.moshi}"

@@ -1,24 +1,19 @@
-package com.example.gamesproj.ui.home
+package com.example.gamesproj.ui.games
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import com.example.gamesproj.R
-import com.example.gamesproj.databinding.FragmentHomeBinding
-import com.example.gamesproject.utils.extension.setInsetsPadding
-import kotlinx.coroutines.launch
+import com.example.gamesproj.databinding.FragmentGamesBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import timber.log.Timber
 
-class HomeFragment : Fragment() {
+class GameFragment : Fragment() {
     //region Variables
-    private val _viewModel: HomeViewModel by viewModel()
-    private lateinit var _binding: FragmentHomeBinding
+    private val _viewModel: GameViewModel by viewModel()
+    private lateinit var _binding: FragmentGamesBinding
     private lateinit var gameAdapter: GameAdapter
 
     //endregion
@@ -30,7 +25,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment.
-        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_games, container, false)
         return _binding.root
     }
 
@@ -66,14 +61,11 @@ class HomeFragment : Fragment() {
             }
         })
     }
-    @SuppressLint("TimberArgCount")
+
     private fun setupView() {
         gameAdapter= GameAdapter()
-        Timber.v("data","data")
-            _viewModel.list.observe(viewLifecycleOwner) {
-                Timber.v("data","data")
+            _viewModel.list?.observe(viewLifecycleOwner) {
                 gameAdapter.submitData(viewLifecycleOwner.lifecycle, it)
-                Timber.v("data","$it")
                 _binding.recycleView.apply {
                     adapter = gameAdapter
                 }

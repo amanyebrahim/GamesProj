@@ -13,24 +13,14 @@ class ModelRepository(
     private val _apiServices: ApiService
 ) {
 
-//    fun getGamesList(pageNumber: Int): Response<GamesResponse> {
-//       return _apiRepository.getListGames(pageNumber).await()
-//    }
-
-
-
-    init{
-
-    }
     fun getGames() = Pager(
         config = PagingConfig(
-            pageSize = IMAGE_PAGE_SIZE,
+            pageSize = GAMES_PAGE_SIZE,
         ), pagingSourceFactory = { GameDatSource(_apiServices) }
     ).liveData
 
     companion object {
-        private const val IMAGE_PAGE_SIZE = 10
-        private const val IMAGE_MAX_SIZE = 50
+        private const val GAMES_PAGE_SIZE = 10
     }
 
     //region Model repository methods

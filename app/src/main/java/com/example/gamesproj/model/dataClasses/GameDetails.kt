@@ -1,29 +1,28 @@
 package com.example.gamesproj.model.dataClasses
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
 
+import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
-
+@Parcelize
 data class GameDetails(
-    @Json(name = "background_image")
+    @SerializedName("background_image")
     val background_image: String?,
-    @Json(name = "description")
+    @SerializedName("description")
     val description: String?,
-    @Json(name = "id")
-    val id: Int?,
-    @Json(name = "movies_count")
+    @SerializedName("id")
+    val id: Long?,
+    @SerializedName("movies_count")
     val movies_count: Int?,
-    @Json(name = "name")
+    @SerializedName("name")
     val name: String?,
-    @Json(name = "name_original")
+    @SerializedName( "name_original")
     val name_original: String?,
-    @Json(name = "publishers")
-    val publishers: List<Publisher>?,
-    @Json(name = "rating")
+    @SerializedName( "rating")
     val rating: Double?,
-    @Json(name = "ratings_count")
+    @SerializedName( "ratings_count")
     val ratings_count: Int?,
-    @Json(name = "released")
+    @SerializedName( "released")
     val released: String?
-)
+):Parcelable

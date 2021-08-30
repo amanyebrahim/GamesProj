@@ -1,6 +1,6 @@
 package com.example.gamesproj.di
 
-import com.example.gamesproj.ui.home.HomeViewModel
+import com.example.gamesproj.ui.games.GameViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -12,6 +12,6 @@ import org.koin.dsl.module
 
 val viewModelsModule = module {
     viewModel {
-        HomeViewModel(get())
+        GameViewModel(get())
     }
 }

@@ -1,17 +1,20 @@
 package com.example.gamesproj.model.dataClasses
 
-import com.squareup.moshi.Json
+import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 
+@Parcelize
 data class GamesResponse(
-    @Json(name = "count")
+    @SerializedName( "count")
     val count: Int?,
-    @Json(name = "description")
+    @SerializedName( "description")
     val description: String?,
-    @Json(name = "next")
+    @SerializedName( "next")
     val next: String?,
-    @Json(name = "previous")
+    @SerializedName( "previous")
     val previous: String?,
-    @Json(name = "results")
+    @SerializedName( "results")
     val results: List<GameDetails>?
-)
+):Parcelable

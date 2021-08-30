@@ -1,19 +1,21 @@
-package com.example.gamesproj.ui.home
+package com.example.gamesproj.ui.games
 
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.gamesproj.model.ModelRepository
+import com.example.gamesproj.model.dataClasses.GameDetails
 import com.example.gamesproj.utils.Event
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
 
-class HomeViewModel (private val _model: ModelRepository) : ViewModel(){
+class GameViewModel (private val _model: ModelRepository) : ViewModel(){
     //region Variables
     private val _navigateBack = MutableLiveData<Event<Boolean?>?>()
 
@@ -60,13 +62,15 @@ class HomeViewModel (private val _model: ModelRepository) : ViewModel(){
     val emptyViewVisibility: LiveData<Int?>
         get() = _emptyViewVisibility
 
-    val list= _model.getGames().cachedIn(viewModelScope)
+    var list:LiveData<PagingData<GameDetails>>?=null
 
 
     init{
-//        showLoading(false)
-//        showErrorView(false)
-//        showEmptyView(false)
+        showLoading(false)
+        showErrorView(false)
+        showEmptyView(false)
+        showForm(true)
+        list= _model.getGames().cachedIn(viewModelScope)
     }
 
     /**

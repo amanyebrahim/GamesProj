@@ -195,6 +195,12 @@ fun bindingAdapterTextView(
         }
     }
 }
+@BindingAdapter("imageFromUrl")
+fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
+    if (!imageUrl.isNullOrEmpty()) {
+        loadImageWithCoil(view, imageUrl,null)
+    }
+}
 //endregion
 
 //region Private methods
@@ -210,8 +216,8 @@ private fun loadImageWithCoil(
         apply {
             when (imagePlaceholder) {
                 null -> {
-                    placeholder(R.drawable.ic_launcher_background)
-                    error(R.drawable.ic_launcher_background)
+                    placeholder(R.drawable.gradient)
+                    error(R.drawable.gradient)
                 }
 
                 else -> {

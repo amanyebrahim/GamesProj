@@ -15,6 +15,7 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
 import javax.net.ssl.HostnameVerifier
@@ -28,10 +29,7 @@ val apiModule = module {
     // Provide custom instance of [HttpLoggingInterceptor] to be attached to Retrofit for logging network calls.
     single {
         HttpLoggingInterceptor().apply {
-            level = when (BuildConfig.enableDebugLogging) {
-                true -> HttpLoggingInterceptor.Level.BODY
-                else -> HttpLoggingInterceptor.Level.NONE
-            }
+            level = HttpLoggingInterceptor.Level.BODY
         }
     }
 
@@ -122,8 +120,7 @@ val apiModule = module {
         Retrofit.Builder()
             .baseUrl("${BuildConfig.BASE_URL}")
             .client(client)
-            .addCallAdapterFactory(networkResponseAdapterFactory)
-            .addConverterFactory(moshiConverterFactory)
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiService::class.java)
     }
