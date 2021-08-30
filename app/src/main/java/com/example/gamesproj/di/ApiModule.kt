@@ -4,8 +4,6 @@ import com.example.gamesproj.BuildConfig
 import com.haroldadmin.cnradapter.NetworkResponseAdapterFactory
 import com.example.gamesproj.model.api.ApiService
 import com.example.gamesproj.utils.isNetworkAvailable
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -14,7 +12,6 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
@@ -106,28 +103,17 @@ val apiModule = module {
         NetworkResponseAdapterFactory()
     }
 
-    // Provide instance of [MoshiConverterFactory].
-    single {
-        MoshiConverterFactory.create()
-    }
-
     // Provide instance of [ApiService].
     single {
         val client: OkHttpClient by inject()
         val networkResponseAdapterFactory: NetworkResponseAdapterFactory by inject()
-        val moshiConverterFactory: MoshiConverterFactory by inject()
 
         Retrofit.Builder()
             .baseUrl("${BuildConfig.BASE_URL}")
             .client(client)
+            .addCallAdapterFactory(networkResponseAdapterFactory)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiService::class.java)
-    }
-
-
-    // Provide instance of [Moshi] with date adapter.
-    single {
-        Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
     }
 }

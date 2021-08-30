@@ -146,17 +146,8 @@ dependencies {
     // Retrofit.
     // Type-safe HTTP client.
     implementation(Dependencies.Retrofit.retrofit)
-    implementation(Dependencies.Retrofit.converterMoshi)
     implementation(Dependencies.Retrofit.networkResponseAdapter)
 
-    // Moshi Kotlin.
-    // Required by reflection adapter to add adapters to moshi.
-    implementation(Dependencies.Moshi.kotlin)
-    kapt(Dependencies.Moshi.codegen)
-
-    // Moshi Adapters.
-    // For adding custom adapters to be used with moshi.
-    implementation(Dependencies.Moshi.adapters)
 
     // OkHttp Logging Interceptor.
     // For HTTP logging.

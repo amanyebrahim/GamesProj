@@ -4,7 +4,6 @@ package com.example.gamesproj.root
 import androidx.multidex.MultiDexApplication
 import com.example.gamesproj.BuildConfig
 import com.example.gamesproj.di.apiModule
-import com.example.gamesproj.di.dataSourceModule
 import com.example.gamesproj.di.modelModule
 import com.example.gamesproj.di.viewModelsModule
 import kotlinx.coroutines.flow.*
@@ -54,7 +53,6 @@ class App : MultiDexApplication() {
         return listOf(
             apiModule,
             modelModule,
-            dataSourceModule,
             viewModelsModule
         )
     }

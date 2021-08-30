@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.gamesproj.R
 import com.example.gamesproj.databinding.FragmentGamesBinding
+import com.example.gamesproj.utils.extension.setInsetsPadding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class GameFragment : Fragment() {
@@ -49,17 +50,7 @@ class GameFragment : Fragment() {
      * Call each function that will observe variable from view model.
      */
     private fun observeViewModel() {
-        observeNavigateBack()
         setupView()
-    }
-
-    private fun observeNavigateBack() {
-        _viewModel.navigateBack.observe(viewLifecycleOwner, {
-            it?.getContentIfNotHandled()?.let {
-                // Only proceed if the event has never been handled.
-                activity?.finish()
-            }
-        })
     }
 
     private fun setupView() {
@@ -71,5 +62,16 @@ class GameFragment : Fragment() {
                 }
             }
     }
+    /**
+     * Bind khatma list once available and not null
+     * then create adapter and assign it to recycleView.
+     */
+//    private fun observekhatmaList() {
+//        _viewModel.khatmaList.observe(viewLifecycleOwner, {
+//            it?.let { list ->
+//                _binding.recycleViewKhatma.adapter = PublicGroupAdapter(list,_viewModel)
+//            }
+//        })
+//    }
 //endregion
 }

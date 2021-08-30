@@ -41,7 +41,7 @@ class GameAdapter  : PagingDataAdapter<GameDetails, GameAdapter.ViewHolder>(Data
     private fun createOnClickListener(gameItem: GameDetails?): View.OnClickListener {
         return View.OnClickListener {
             val bundle = bundleOf(
-                NAV_KEY_GAME_ID to gameItem?.id,
+                NAV_KEY_GAME_ID to gameItem?.id?.toInt(),
             )
             it.findNavController().navigate(R.id.gameDetailsFragment, bundle, navOptions)
         }

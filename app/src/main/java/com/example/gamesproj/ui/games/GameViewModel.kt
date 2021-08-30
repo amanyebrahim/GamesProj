@@ -182,8 +182,4 @@ class GameViewModel (private val _model: ModelRepository) : ViewModel(){
             }
         }
     }
-
-
-
-
 }

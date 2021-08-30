@@ -13,7 +13,7 @@ import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import coil.load
 import com.example.gamesproj.R
-import com.example.gamesproject.utils.extension.getParentActivity
+import com.example.gamesproj.utils.extension.getParentActivity
 import timber.log.Timber
 
 /**

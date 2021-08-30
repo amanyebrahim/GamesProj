@@ -1,4 +1,4 @@
-package com.example.gamesproject.utils.extension
+package com.example.gamesproj.utils.extension
 
 
 import android.content.ContextWrapper
