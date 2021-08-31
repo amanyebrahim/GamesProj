@@ -1,4 +1,4 @@
-#Games Jetpack Components
+# Games Jetpack Components
 
 App demonstrating Clean Architecture using Coroutines and Android Jetpack Components (MVVM Paging,Data Binding, Navigation Components and Live Data)
 
@@ -10,7 +10,7 @@ ScreenShots
 
 
 
-#Tech stack & Open-source libraries
+# Tech stack & Open-source libraries
 
 Kotlin Dsl
 Retrofit&okHttp : For Network calls
