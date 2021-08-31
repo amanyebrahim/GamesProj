@@ -7,5 +7,6 @@
     <string name="connection_error">Cannot connect to server. Please check your Internet connection and try again.</string>
     <string name="unknown_error">An unknown error occurred!</string>
     <string name="session_expired">Your login session has been expired.\nPlease login again.</string>
-    <string name="list_not_found">Eror happen when Retreiving Data!</string>
+    <string name="list_not_found">Error happen when Retreiving Data!</string>
+    <string name="empty_list">No Games added till now</string>
 </resources>

@@ -6,9 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.paging.LoadState
 import com.example.gamesproj.R
 import com.example.gamesproj.databinding.FragmentGamesBinding
+import com.example.gamesproj.utils.extension.getNavController
 import com.example.gamesproj.utils.extension.setInsetsPadding
+import com.example.gamesproj.utils.extension.showIf
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class GameFragment : Fragment() {
@@ -44,34 +47,49 @@ class GameFragment : Fragment() {
         observeViewModel()
     }
     //endregion
-
     //region Private methods
     /**
      * Call each function that will observe variable from view model.
      */
     private fun observeViewModel() {
         setupView()
+        loadGamesState()
     }
 
     private fun setupView() {
         gameAdapter= GameAdapter()
-            _viewModel.list?.observe(viewLifecycleOwner) {
-                gameAdapter.submitData(viewLifecycleOwner.lifecycle, it)
-                _binding.recycleView.apply {
-                    adapter = gameAdapter
-                }
+        _viewModel.gamePagingData?.observe(viewLifecycleOwner) {
+            gameAdapter.submitData(viewLifecycleOwner.lifecycle, it)
+            _binding.recycleView.apply {
+                adapter = gameAdapter.withLoadStateHeaderAndFooter(
+                    header = GameStateFooterAdapter().apply {
+                        onRetryClickListener = { gameAdapter.retry() }
+                    },
+                    footer = GameStateFooterAdapter().apply {
+                        onRetryClickListener = { gameAdapter.retry() }
+                    }
+                )
             }
+        }
     }
-    /**
-     * Bind khatma list once available and not null
-     * then create adapter and assign it to recycleView.
-     */
-//    private fun observekhatmaList() {
-//        _viewModel.khatmaList.observe(viewLifecycleOwner, {
-//            it?.let { list ->
-//                _binding.recycleViewKhatma.adapter = PublicGroupAdapter(list,_viewModel)
-//            }
-//        })
-//    }
+    private fun loadGamesState(){
+        gameAdapter.addLoadStateListener { loadState ->
+            _binding.apply {
+                recycleView.showIf(loadState.source.refresh is LoadState.NotLoading)
+                progressLoading.showIf(loadState.source.refresh is LoadState.Loading)
+                _binding.layoutErrorBinding.layoutError.showIf(loadState.source.refresh is LoadState.Error)
+                _binding.layoutEmptyListBinding.layoutEmpty.showIf(loadState.source.refresh is LoadState.NotLoading
+                        && loadState.append.endOfPaginationReached && gameAdapter.itemCount < 1)
+
+                if(loadState.source.refresh is LoadState.Error)
+                    _binding.layoutErrorBinding.tvError.setText(R.string.list_not_found)
+
+                if(loadState.source.refresh is LoadState.NotLoading
+                    && loadState.append.endOfPaginationReached && gameAdapter.itemCount < 1)
+                    _binding.layoutEmptyListBinding.tvEmpty.setText(R.string.empty_list)
+            }
+        }
+    }
+
 //endregion
 }

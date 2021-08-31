@@ -20,10 +20,8 @@
             layout="@layout/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_8sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            bind:actionStartClickListener="@{()->viewModel.backClicked()}"
             bind:title="@{@string/game_title}"
             />
 
@@ -37,21 +35,21 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layout_toolbar_binding"
-            app:mutableVisibility="@{viewModel.formVisibility}" />
+             />
 
         <include
             android:id="@+id/layout_error_binding"
             layout="@layout/layout_error"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layout_toolbar_binding"
-            bind:clickListener="@{()->viewModel.retryClicked()}" />
+            />
 
         <include
             android:id="@+id/layout_empty_list_binding"
             layout="@layout/layout_empty_list"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -59,17 +57,15 @@
 
 
         <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:id="@+id/progress_loading_countries"
+            android:id="@+id/progress_loading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:indeterminate="true"
-            android:visibility="gone"
-            app:indicatorColor="?attr/colorPrimary"
+            app:indicatorColor="?attr/colorSecondary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layout_toolbar_binding"
-            app:mutableVisibility="@{viewModel.loadingVisibility}" />
+            app:layout_constraintTop_toBottomOf="@+id/layout_toolbar_binding" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

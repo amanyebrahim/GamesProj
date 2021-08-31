@@ -10,6 +10,7 @@ import com.example.gamesproj.R
 import com.example.gamesproj.databinding.FragmentGameDetailsBinding
 import com.example.gamesproj.utils.extension.getNavController
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 class GameDetailsFragment : Fragment() {
     //region Variables
@@ -68,7 +69,6 @@ class GameDetailsFragment : Fragment() {
                     null -> _binding.layoutErrorBinding.tvError.text = _viewModel.errorMessage.value
                     else -> _binding.layoutErrorBinding.tvError.setText(errorMessageId)
                 }
-
                 _binding.layoutErrorBinding.layoutError.visibility = it
             }
         })

@@ -38,6 +38,12 @@ fun View.makeInVisible() {
 fun View.makeGone() {
     visibility = View.GONE
 }
+/*
+ * Sets View visibility due to condition
+ */
+fun View.showIf(statement: Boolean?) {
+    this.visibility = if (statement != null && statement) View.VISIBLE else View.GONE
+}
 /**
  * Add window insets listener
  * and use the returned insets to get status and navigation bars heights

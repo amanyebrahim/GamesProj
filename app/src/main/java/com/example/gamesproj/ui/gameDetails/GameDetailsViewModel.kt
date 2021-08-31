@@ -68,6 +68,9 @@ class GameDetailsViewModel (private val _model: ModelRepository) : ViewModel() {
     val imageUrl: LiveData<String?>
         get() = _imageUrl
 
+
+    private var gameId=-1
+
     init {
         showLoading(true)
     }
@@ -86,13 +89,16 @@ class GameDetailsViewModel (private val _model: ModelRepository) : ViewModel() {
     fun retryClicked() {
         Timber.v("retryClicked")
         showErrorView(false)
+        showLoading(true)
+        fetchGameDetailsApi(gameId)
     }
 
     /**
      * Process args and if there is issue in args just go back.
      */
-    fun gotArgs(gameId:Int) {
+    fun gotArgs(id:Int) {
         Timber.v("gotArgs$gameId")
+        gameId=id
         fetchGameDetailsApi(gameId)
     }
     /**
@@ -187,13 +193,11 @@ class GameDetailsViewModel (private val _model: ModelRepository) : ViewModel() {
 
                 else -> handleRetreiveListError()
             }
-            showLoading(false)
-            showErrorView(false)
-            showForm(true)
         }
     }
     private fun handleRetreiveListResponse(statusCode: Int, response: GameDetails) {
         Timber.v("handleGameDetailsResponse - statusCode: $statusCode")
+        showForm(true)
         viewModelScope.launch(Dispatchers.Main) {
             _imageUrl.value = response.background_image
             _gameNameText.value=response.name
@@ -205,8 +209,10 @@ class GameDetailsViewModel (private val _model: ModelRepository) : ViewModel() {
 
     private fun handleRetreiveListErrorResponse(statusCode: Int, response: ErrorResponse) {
         Timber.v("handleGameDetailsErrorResponse - statusCode: $statusCode")
+        showForm(false)
+        showErrorView(true)
         when (statusCode) {
-            0, 500 -> showErrorView(response.errorMessageId)
+            0, 500 -> showErrorView(errorMessageId = R.string.connection_error)
             else -> when (response.error) {
                 null -> showErrorView(errorMessageId = R.string.list_not_found)
                 else -> showErrorView(errorMessage = response.error)
@@ -215,7 +221,9 @@ class GameDetailsViewModel (private val _model: ModelRepository) : ViewModel() {
     }
 
     private fun handleRetreiveListError() {
-        Timber.v("handlePublicGroupsError")
+        Timber.v("handleGameDetailsError")
+        showForm(false)
+        showErrorView(true)
         showErrorView(errorMessageId = R.string.list_not_found)
     }
 }
