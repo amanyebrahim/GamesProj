@@ -2,12 +2,12 @@
 
 App demonstrating Clean Architecture using Coroutines and Android Jetpack Components (MVVM Paging,Data Binding, Navigation Components and Live Data)
 
-#ScreenShots
+# ScreenShots
 
- games.                    |   gameDetails 
-:-------------------------:|:-------------------------:
-![](screenShot/games.png?raw=true "Title") | ![](screenShot/gameDetails.png?raw=true "Title") 
-
+<p float="left">
+  <img src="/screenShot/games.png" width="400" />
+  <img src="/screenShot/gameDetails.png" width="400" /> 
+</p>
 
 
 # Tech stack & Open-source libraries
