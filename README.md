@@ -15,6 +15,7 @@ App demonstrating Clean Architecture using Coroutines and Android Jetpack Compon
 * **Kotlin Dsl** </br>
 * **Retrofit2 & okHttp3** : For Network calls </br>
 * **Architecture** : MVVM - Repository pattern </br>
+* **Navigation** : refers to the interactions that allow users to navigate across, into, and back out from the different pieces of content within your app.
 * **Coroutines** for background operations like fetching network response </br>
 * **Live Data** : To notify view for change </br>
 * **koin** : For dependency injection </br>
