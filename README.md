@@ -4,7 +4,7 @@ App demonstrating Clean Architecture using Coroutines and Android Jetpack Compon
 
 ScreenShots
 
-Solarized dark             |  Solarized Ocean
+            |  
 :-------------------------:|:-------------------------:
 ![](screenShot/gameDetails.png?raw=true "Title") | ![](screenShot/games.png?raw=true "Title") 
 
