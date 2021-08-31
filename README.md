@@ -4,7 +4,7 @@ App demonstrating Clean Architecture using Coroutines and Android Jetpack Compon
 
 ScreenShots
 
-        games.             |   gameDetails 
+ games.                    |   gameDetails 
 :-------------------------:|:-------------------------:
 ![](screenShot/games.png?raw=true "Title") | ![](screenShot/gameDetails.png?raw=true "Title") 
 
