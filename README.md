@@ -4,7 +4,7 @@ App demonstrating Clean Architecture using Coroutines and Android Jetpack Compon
 
 ScreenShots
 
- 
+ ![Alt text](relative/path/to/games.jpg?raw=true "Title")
 
 Tech stack & Open-source libraries
 
