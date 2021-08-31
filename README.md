@@ -23,3 +23,10 @@ App demonstrating Clean Architecture using Coroutines and Android Jetpack Compon
  
 
 This application strictly follows the below architecture
+
+
+# APIKEY
+
+GameProject using the [RawgApi](https://rawg.io/apidocs) for constructing RESTful API. </br>
+Get your api key from here https://rawg.io </br>
+Please add your api key to key field in local.properties to run </br>
