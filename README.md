@@ -18,7 +18,8 @@ App demonstrating Clean Architecture using Coroutines and Android Jetpack Compon
 * **Coroutines** for background operations like fetching network response </br>
 * **Live Data** : To notify view for change </br>
 * **koin** : For dependency injection </br>
-* **Datainding**:for write expression Directly in xml to make certain view related logic </br>
+* **Datainding** :for write expression Directly in xml to make certain view related logic </br>
+* **Material-Components** :Material design components like ripple cardView.
 * **coil** :An image loading library for Android backed by Kotlin Coroutines. </br>
  
 
