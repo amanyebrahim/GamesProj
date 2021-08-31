@@ -32,7 +32,6 @@ object Versions {
     const val retrofit = "2.9.0"
     const val networkResponseAdapter = "4.1.0"
     const val loggingInterceptor = "5.0.0-alpha.2"
-    const val moshi = "1.11.0"
     const val coil = "1.1.1"
     const val shapeImageView = "0.9.3"
     const val sdp = "1.0.6"

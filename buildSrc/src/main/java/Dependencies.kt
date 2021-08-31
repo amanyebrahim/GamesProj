@@ -32,8 +32,6 @@ object Dependencies {
 
         const val multiDex = "androidx.multidex:multidex:${Versions.AndroidX.multiDex}"
 
-        const val dataStore =
-            "androidx.datastore:datastore-preferences:${Versions.AndroidX.dataStore}"
     }
 
     object Lifecycle {
