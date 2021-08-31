@@ -1,5 +1,6 @@
 package com.example.gamesproj.model.api
 
+import com.example.gamesproj.BuildConfig
 import com.example.gamesproj.model.dataClasses.ErrorResponse
 import com.example.gamesproj.model.dataClasses.GameDetails
 import com.example.gamesproj.model.dataClasses.GamesResponse
@@ -26,7 +27,7 @@ interface ApiService {
 
 
     companion object {
-        const val KEY = "292b0aa50deb45718ab98d806ad61fee"
+        const val KEY = BuildConfig.key
     }
 
 }

@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     id(Plugins.androidApplication)
     kotlin(Plugins.kotlinAndroid)
@@ -49,6 +51,7 @@ android {
             }
         }
     }
+    val key: String = gradleLocalProperties(rootDir).getProperty("key")
 
     buildTypes {
         getByName("debug") {
@@ -61,6 +64,7 @@ android {
             proguardFiles(ProGuards.okio)
             proguardFiles(ProGuards.shapeImageView)
             proguardFiles(getDefaultProguardFile(ProGuards.proguardTxt), ProGuards.androidDefault)
+            buildConfigField("String", "key", key)
             buildConfigField("boolean", "enableDebugLogging", "true")
             buildConfigField("String", "PACKAGE_NAME", "\"com.example.gamesproj\"")
             buildConfigField("String", "BASE_URL", "\"https://api.rawg.io/api/\"")
