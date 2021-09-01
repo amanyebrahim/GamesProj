@@ -1,6 +1,7 @@
 package com.example.gamesproj.di
 
 
+import com.example.gamesproj.model.ModelRepo
 import com.example.gamesproj.model.ModelRepository
 import org.koin.dsl.module
 
@@ -9,7 +10,7 @@ import org.koin.dsl.module
  */
 val modelModule = module {
     // Provide instance of [ModelRepo].
-    single {
+    single<ModelRepo> {
         ModelRepository(get())
     }
 }

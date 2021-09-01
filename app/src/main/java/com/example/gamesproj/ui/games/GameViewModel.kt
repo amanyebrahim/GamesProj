@@ -6,12 +6,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import com.example.gamesproj.model.ModelRepo
 import com.example.gamesproj.model.ModelRepository
 import com.example.gamesproj.model.dataClasses.GameDetails
 
 
 
-class GameViewModel (private val _model: ModelRepository) : ViewModel(){
+class GameViewModel (private val _model: ModelRepo) : ViewModel(){
 
     var gamePagingData:LiveData<PagingData<GameDetails>>?=null
 

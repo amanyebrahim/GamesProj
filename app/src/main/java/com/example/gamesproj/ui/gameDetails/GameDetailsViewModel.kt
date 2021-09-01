@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.gamesproj.R
+import com.example.gamesproj.model.ModelRepo
 import com.example.gamesproj.model.ModelRepository
 import com.example.gamesproj.model.dataClasses.ErrorResponse
 import com.example.gamesproj.model.dataClasses.GameDetails
@@ -16,7 +17,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class GameDetailsViewModel (private val _model: ModelRepository) : ViewModel() {
+class GameDetailsViewModel (private val _model: ModelRepo) : ViewModel() {
     //region Variables
     private val _navigateBack = MutableLiveData<Event<Boolean?>?>()
 
