@@ -12,7 +12,7 @@ App demonstrating Clean Architecture using Coroutines and Android Jetpack Compon
 
 # Tech stack & Open-source libraries
 
-* **Kotlin Dsl** </br>
+* **Kotlin Dsl** : convert project from a Groovy-based Gradle system to a Kotlin-based Gradle system with the help of Kotlin DSL </br>
 * **Retrofit2 & okHttp3** : For Network calls </br>
 * **Architecture** : MVVM - Repository pattern </br>
 * **Navigation** : refers to the interactions that allow users to navigate across, into, and back out from the different pieces of content within your app.
@@ -23,9 +23,6 @@ App demonstrating Clean Architecture using Coroutines and Android Jetpack Compon
 * **Material-Components** :Material design components like ripple cardView.
 * **coil** :An image loading library for Android backed by Kotlin Coroutines. </br>
  
-
-This application strictly follows the below architecture
-
 
 # APIKEY
 
