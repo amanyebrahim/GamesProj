@@ -17,15 +17,15 @@ import java.io.IOException
  */
 class ModelRepository(
     private val _apiServices: ApiService
-) {
+) :ModelRepo{
 
-    fun getGames() = Pager(
+    override fun getGames() = Pager(
         config = PagingConfig(
             pageSize = GAMES_PAGE_SIZE,
         ), pagingSourceFactory = { GameDatSource(_apiServices) }
     ).liveData
 
-    suspend fun getGameDetails(
+  override  suspend fun getGameDetails(
         id:Int
     ): NetworkResponse<GameDetails, ErrorResponse> {
         return when (val response = _apiServices.getGameDetails(id).await()) {
