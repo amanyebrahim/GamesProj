@@ -24,9 +24,6 @@ App demonstrating Clean Architecture using Coroutines and Android Jetpack Compon
 * **coil** :An image loading library for Android backed by Kotlin Coroutines. </br>
  
 
-This application strictly follows the below architecture
-
-
 # APIKEY
 
 GameProject using the [RawgApi](https://rawg.io/apidocs) for constructing RESTful API. </br>
