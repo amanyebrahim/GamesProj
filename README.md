@@ -1,6 +1,6 @@
 # Games Jetpack Components
 
-App demonstrating Clean Architecture using Coroutines and Android Jetpack Components (MVVM Paging,Data Binding, Navigation Components and Live Data)
+App demonstrating Clean Architecture using Coroutines and Android Jetpack Components (MVVM ,Paging,Data Binding, Navigation Components and Live Data)
 
 # ScreenShots
 
